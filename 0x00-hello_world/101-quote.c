@@ -5,12 +5,12 @@
 /**
  * main - Entry point
  *
- * Description: prints "and that piece of art is useful" - Dora Korpar, 2015-10-19"
+ * Description: prints "Programming is like building a multilingual puzzle"
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	puts("\"and that piece of art is useful" - Dora Korpar, 2015-10-19");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
