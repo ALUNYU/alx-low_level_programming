@@ -12,19 +12,19 @@ int main(void)
 {
 	int i;
 
-	i=48;
+	i = 48;
 
 	while (i < 58)
 	{
 		putchar(i);
 		if (i != 57)
 		{
-			puchar(44);
-			puchar(32);
+			putchar(44);
+			putchar(32);
 		}
 		i++;
 	}
-	puchar(10);
+	putchar(10);
 
 	return (0);
 }
