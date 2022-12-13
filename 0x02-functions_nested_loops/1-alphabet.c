@@ -2,6 +2,7 @@
 
 /**
  * print_alphabet
+ * description - prints lower case alphabet
  * Return: void
  */
 
