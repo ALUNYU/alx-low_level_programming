@@ -7,33 +7,42 @@
  * Return: pointer to initial segment of haystack
  */
 
+int compare(char *haystack, char *needle)
+{
+	int i;
+
+	for (i = 0; needle[i] != '\0'; i++)
+	{
+		if (haystack[i] == '\0')
+			return (0);
+		if (haystack[i] != needle[i])
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * _strstr - locates a substring
+ * @haystack: source string
+ * @needle: substring
+ * Description: finds first instance of needle in haystack
+ * Return: pointer to first instance, NULL if not in haystack
+ */
+
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, start;
-	int nlen = 0;
+	int j;
 
-	i = 0;
-	j = 0;
-	start = 0;
+	if (needle[0] == '\0')
+		return (haystack);
 
-	while (needle[nlen] != '\0')
+	for (j = 0; haystack[j] != '\0'; j++)
 	{
-		nlen++;
-	}
-	for (i = 0; haystack[i] != '\0'; i++)
-	{
-		for (j = 0; j < nlen && haystack[i] == needle[j]; j++, i++)
+		if (needle[0] == haystack[j])
 		{
-			if (j == 0)
-			{
-				start = i;
-			}
-			if (j == nlen - 1)
-			{
-				return (haystack + start);
-			}
+			if (compare(&haystack[j], needle) == 1)
+				return (&haystack[j]);
 		}
 	}
-	return (0);
+	return (NULL);
 }
- 
