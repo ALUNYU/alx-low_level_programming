@@ -3,63 +3,51 @@
 #include <stdlib.h>
 
 /**
- * is_number - checks to see if input is a number
- * @s: input to check for numberhood
- * Return: 1 if it is a number, 0 if not
+ * numchecker - verifies if string has only numbers
+ * @s: string to check
+ * Description: return 1 if only numbers in string, 0 if not
+ * Return: 1 if only numbers, 0 if not
  */
 
+int numchecker(char *s)
 {
 	int i;
 
-	i = 0;
-	while (*(s + i) != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (*(s + i) >= '0' && *(s + i) <= '9')
-		{
-			i++;
-		}
-		else
-		{
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		}
 	}
 	return (1);
 }
 
 /**
- * main - prints the sum of positive numbers
- * @argc: number of arguments
- * @argv: array of arguments
- * Return: (0)
+ * main - find least amount of coins needed for change
+ * @argc: number of parameters entered
+ * @argv: strings entered including file name
+ * Description: prints the minimum number of coins to make change
+ * Return: zero
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int i, sum, is_num;
+	int sum, i;
 
 	sum = 0;
-	if (argc == 1)
+	for (i = 1; i < argc; i++)
 	{
-		printf("0\n");
-	}
-	else if (argc > 1)
-	{
-		i = 1;
-		while (i < argc)
+		if (numchecker(argv[i]) == 0)
 		{
-			is_num = is_number(argv[i]);
-			if (is_num == 1)
-			{
-				sum += atoi(argv[i]);
-			}
-			else
-			{
-				printf("Error\n");
-				return (1);
-			}
-			i++;
+			printf("Error\n");
+			return (1);
 		}
-		printf("%d\n", sum);
+		if (atoi(argv[i]) <= 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += atoi(argv[i]);
 	}
+	printf("%d\n", sum);
 	return (0);
 }
