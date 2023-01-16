@@ -1,13 +1,7 @@
-#include <stdio.h>
+#ifndef FUNCTION_LIKE_MACRO_H
 
-/**
- * main - prints name of file it was compiled from
- * Return: 0 (Always)
- */
+#define FUNCTION_LIKE_MACRO_H
 
-int main(void)
-{
-	printf("%s\n", __FILE__);
+#define ABS(num) ((num) > (-1) ? (num) : (num * -1))
 
-	return (0);
-}
+#endif /* !FUNCTION_LIKE_MACRO_H */
